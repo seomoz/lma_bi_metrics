@@ -28,14 +28,14 @@ df <- df_raw %>%
 # Make a histogram of how many days people stick around
 p1 <- ggplot(data = df, aes(x = max_bin)) +
   geom_histogram(bins = 100) +
-  facet_wrap(facets = ~ month) +
+  facet_wrap(facets = ~ month, scales=("free_y")) +
   ggtitle(label = 'LMA days between first and last visit',
           subtitle = paste('lifetime capped at', cap_value, 'days'))
 
 # Show count of page loads
 p2 <- ggplot(data = df, aes(x = page_loads)) +
   geom_histogram(bins = 50) +
-  facet_wrap(facets = ~ month) +
+  facet_wrap(facets = ~ month, scales=("free_y")) +
   ggtitle(label = 'Histogram of page loads by user_id',
           subtitle = 'faceted by first visit month') +
   xlim(c(0,25))
